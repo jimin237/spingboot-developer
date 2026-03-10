@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldController {
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
+//    @GetMapping("/hello")
+//    public String hello() {
+//        return "Hello World";
+//    }
 
 
 //    @GetMapping ("/student")
@@ -29,6 +29,8 @@ public class HelloWorldController {
     public Student getStudent2(@PathVariable("firstName") String firstName,@PathVariable("lastName") String lastName){
         return new Student(firstName, lastName);
     }
+
+
 
 
 }
