@@ -1,34 +1,39 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.4.0' // Spring Boot 버전 3.4.0으로.
+    id 'org.springframework.boot' version '3.4.0'
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
-group 'me.spark'
-version '1.0'
+group = 'me.spark'
+version = '1.0'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17) // java는 oracle jdk 22
+        // Java 17을 쓰신다고 명시하셨으니 17로 유지합니다.
+        // (만약 JDK 22를 꼭 써야 한다면 of(22)로 변경하세요)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
-
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // 스프링 데이터 JPA
-    runtimeOnly 'com.h2database:h2' // 인메모리 데이터베이스
-    compileOnly 'org.projectlombok:lombok' // 반복적인 메서드 작성 작업을 줄여주는 롬복
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Lombok 설정
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    runtimeOnly 'com.h2database:h2'
+
+    // ⭐ Spring Boot Starter Test에 JUnit 5가 이미 포함되어 있습니다.
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-
 test {
-    useJUnitPlatform()
+    useJUnitPlatform() // JUnit 5(Jupiter)를 사용하겠다는 선언입니다.
 }
