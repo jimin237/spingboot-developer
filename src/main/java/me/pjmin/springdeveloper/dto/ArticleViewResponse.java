@@ -1,8 +1,9 @@
-package me.jhjang.springdeveloper.dto;
+package me.pjmin.springdeveloper.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.jhjang.springdeveloper.dao.Article;
+import me.pjmin.springdeveloper.dao.Article;
+
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,7 @@ public class ArticleViewResponse {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public ArticleViewResponse (Article article) {
+    public ArticleViewResponse(Article article) {
         this.id = article.getId();
         this.title = article.getTitle();
         this.content = article.getContent();

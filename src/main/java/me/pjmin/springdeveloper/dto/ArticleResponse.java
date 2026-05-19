@@ -1,11 +1,12 @@
-package me.jhjang.springdeveloper.dto;
+package me.pjmin.springdeveloper.dto;
 
 import lombok.Getter;
-import me.jhjang.springdeveloper.dao.Article;
+import me.pjmin.springdeveloper.dao.Article;
+
 
 @Getter
 public class ArticleResponse {
-    private  final Long id;
+    private final Long id;
     private final String title;
     private final String content;
 

@@ -1,9 +1,9 @@
-package me.jhjang.springdeveloper.dto;
+package me.pjmin.springdeveloper.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.jhjang.springdeveloper.dao.Article;
+import me.pjmin.springdeveloper.dao.Article;
 
 @Getter
 @NoArgsConstructor
@@ -11,6 +11,7 @@ import me.jhjang.springdeveloper.dao.Article;
 public class AddArticleRequest {
     private String title;
     private String content;
+
     public Article toEntity() {
         //return new Article(title, content);
         return Article.builder().title(title).content(content).build();

@@ -1,4 +1,4 @@
-package me.jhjang.springdeveloper.dto;
+package me.pjmin.springdeveloper.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

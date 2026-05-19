@@ -1,10 +1,9 @@
-package me.jhjang.springdeveloper.controller;
+package me.pjmin.springdeveloper.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.jhjang.springdeveloper.dao.Article;
-import me.jhjang.springdeveloper.dto.ArticleResponse;
-import me.jhjang.springdeveloper.dto.ArticleViewResponse;
-import me.jhjang.springdeveloper.service.BlogService;
+import me.pjmin.springdeveloper.dao.Article;
+import me.pjmin.springdeveloper.dto.ArticleResponse;
+import me.pjmin.springdeveloper.dto.ArticleViewResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +16,10 @@ import java.util.List;
 @Controller
 public class BlogViewController {
 
-    private final BlogService blogService;
+    private final me.pjmin.springdeveloper.service.BlogService blogService;
 
     // 게시글 목록 뷰
-    @GetMapping("/article")
+    @GetMapping("/articles")
     public String getArticles(Model model) {
 
         List<ArticleResponse> articles =
@@ -35,11 +34,12 @@ public class BlogViewController {
     }
 
     @GetMapping("/articles/{id}")
-    public String getArticle(@PathVariable Long id, Model model){
+    public String getArticle(@PathVariable Long id, Model model) {
         Article article = blogService.findById(id);
-        model.addAttribute("article",new ArticleViewResponse(article));
-        return "article";
+        model.addAttribute("article", new ArticleViewResponse(article));
+        return "articles";
     }
+
     @GetMapping("/new-article") // http://localhost:8080/new-article?id=1
     public String newArticle(@RequestParam(required = false) Long id, Model model) {
         if (id != null) {

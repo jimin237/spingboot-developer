@@ -1,4 +1,4 @@
-package me.jhjang.springdeveloper;
+package me.pjmin.springdeveloper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
